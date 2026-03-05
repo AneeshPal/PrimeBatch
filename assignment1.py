@@ -1,9 +1,9 @@
-# #Q1
+# #Q1 printing name and age
 # name=input("enter the name ")
 # age=int(input("enter the age "))
 # print(f"Hello {name},you are {age} years old!")
 
-# #q2
+# #q2 find sum, difference, product, quotient
 # num1=int(input("enter the first number "))
 # num2=int(input("enter the second number "))
 

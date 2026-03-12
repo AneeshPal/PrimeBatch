@@ -148,6 +148,110 @@ HAVING MAX(followers)>200;
 -- ORDER BY
 
 
+-- Table Queries:-
+
+-- 3. UPDATE:To update existing rows
+
+-- You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column.  
+-- To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.
+-- SET SQL_SAFE_UPDATES=0
+
+SET SQL_SAFE_UPDATES=0;
+
+UPDATE users
+SET followers =11
+where age=16;
+
+SELECT * FROM users;
+
+-- 4.DELETE
+
+DELETE FROM users
+where age =14;
+
+
+-- 5.ALTER :to change the schema
+
+-- ADD COULMN
+ALTER TABLE users
+ADD COLUMN city VARCHAR(25) DEFAULT "Delhi";
+
+-- DROP COLUMN
+ALTER TABLE users
+DROP COLUMN city;
+
+-- RENAME TABLE
+ALTER TABLE users
+RENAME TO insta_user;
+
+ALTER TABLE insta_user
+RENAME TO users;
+
+-- CHANGE COlUMN (TO rename)
+ALTER TABLE users
+CHANGE COLUMN followers subs INT DEFAULT 0;
+
+-- MODIFY COLUMN(modify datatype/constraint)
+ALTER TABLE users
+MODIFY subs INT DEFAULT 5;
+SELECT * FROM users;
+
+-- 5.TRUNCATE :to delete table data 
+TRUNCATE TABLE users; -- gives error because of foreign key reference
+
+DROP TABLE posts; -- droping the foreign key table
+TRUNCATE TABLE users;
+
+DROP TABLE users;
+
+
+-- Practice Question 1:
+
+CREATE DATABASE IF NOT EXISTS college;
+
+USE college;
+
+CREATE TABLE teacher(
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    subject VARCHAR(50),
+    salary INT
+);
+
+
+INSERT INTO teacher
+(id,name,subject,salary)
+VALUES
+(23,"ajay","mat",50000),
+(47,"bharat","english",60000),
+(18,"chetan","chemistry",45000),
+(9,"divya","chemistry",75000);
+
+
+SELECT * FROM teacher;
+
+SELECT * FROM teacher
+where salary >50000;
+
+ALTER TABLE teacher
+CHANGE COLUMN salary ctc INT;
+
+UPDATE teacher
+SET ctc=ctc+ctc*0.25;
+
+ALTER TABLE teacher
+ADD COLUMN city VARCHAR(50)DEFAULT "Guragon";
+
+
+ALTER TABLE teacher
+DROP COLUMN ctc;
+
+
+
+
+
+
+
 
 
 
